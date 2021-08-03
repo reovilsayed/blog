@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\PageController;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,9 +16,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function(){
-   return view('index');
-});
+Route::get('/', [PageController::class,'home']);
+
 Route::get('single', function () {
     return view('single');
 });
@@ -31,3 +33,5 @@ Route::get('add-post', function () {
 Route::get('posts', function () {
     return view('posts');
 });
+
+Route::post('register',[AuthController::class,'register'])->name('register');
