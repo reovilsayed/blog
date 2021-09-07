@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\PostController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,21 +18,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [PageController::class,'home']);
-
-Route::get('single', function () {
-    return view('single');
-});
-Route::get('login', function () {
-    return view('login');
-});
-Route::get('register', function () {
-    return view('register');
-});
-Route::get('add-post', function () {
-    return view('addpost');
-});
-Route::get('posts', function () {
-    return view('posts');
-});
+Route::get('single', [PageController::class,'single']);
+Route::get('login', [PageController::class,'login']);
+Route::get('register', [PageController::class,'register']);
+Route::get('add-post', [PageController::class,'add_post']);
+Route::get('posts', [PageController::class,'posts']);
 
 Route::post('register',[AuthController::class,'register'])->name('register');
+Route::post('add-post',[PostController::class,'add_new'])->name('add_new');

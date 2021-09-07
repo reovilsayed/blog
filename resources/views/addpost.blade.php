@@ -13,18 +13,31 @@
            </ul>
         </div>
         <div class="col-md-9">
-          <form action="">
+         @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+        @if (session()->has('message'))
+            <p class="text-success">{{session('message')}}</p>
+        @endif
+          <form action="{{route('add_new')}}" method="post" enctype="multipart/form-data">
+            @csrf
               <div class="form-group">
                   <label for="title">Title</label>
-                  <input type="text"id="title" class="form-control">
+                  <input type="text"id="title" class="form-control" name="title">
               </div>
               <div class="form-group">
                   <label for="thumbnail">Thumbnail</label>
-                  <input type="file" id="thumbnail" class="form-control">
+                  <input type="file" id="thumbnail" class="form-control" name="image">
               </div>
               <div class="form-group">
                   <label for="description">Description</label>
-                  <textarea id="description" class="form-control"></textarea>
+                  <textarea id="description" class="form-control" name="description"></textarea>
               </div>
               <div class="form-group">
                  <button type="submit" class="btn btn-info">Submit</button>
