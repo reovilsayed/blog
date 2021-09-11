@@ -21,8 +21,8 @@
                 <p class="card-text">{{$post->description}}</p>
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="btn-group">
-                    <a type="button" class="btn btn-sm btn-outline-secondary" href="single.html">View</a>
-                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                    <a type="button" class="btn btn-sm btn-outline-secondary" href="{{route('single',$post->id)}}">View</a>
+                    <a type="button" class="btn btn-sm btn-outline-secondary" href="{{route('edit_post',$post->id)}}">Edit</a>
                   </div>
                   <small class="text-muted">9 mins</small>
                 </div>
