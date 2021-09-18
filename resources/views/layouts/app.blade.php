@@ -34,12 +34,22 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="{{url('posts')}}">Posts</a>
                 </li>
+                @guest
                 <li class="nav-item active">
                     <a class="nav-link" href="{{url('login')}}">Login</a>
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link" href="{{url('register')}}">Register</a>
                 </li>
+                @endguest
+                @auth
+                <li class="nav-item active">
+                    <a class="nav-link" href="{{url('logout')}}">{{Auth::user()->name}}</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="{{url('logout')}}">Logout</a>
+                </li>
+                @endauth
             </ul>
         </div>
     </nav>

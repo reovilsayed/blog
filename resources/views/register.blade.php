@@ -5,15 +5,22 @@
     <div class="container pt-3">
        <div class="row pt-5 justify-content-center">
            <div class="col-md-8">
-            @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+                @if (session()->has('message'))
+                    <div class="alert alert-success">
+                        <ul>
+                                <li>{{ session('message') }}</li>
+                        </ul>
+                    </div>
+                @endif
                <div class="card mb-4 box-shadow">
                    <div class="card-header">
                        Register
